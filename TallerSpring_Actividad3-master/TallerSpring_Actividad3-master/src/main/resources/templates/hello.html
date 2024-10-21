@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ocupa toda la altura de la ventana */
+            margin: 0;
+            background-color: #f0f8ff; /* Color de fondo claro */
+            font-family: Arial, sans-serif;
+            position: relative; /* Para posicionar el botón */
+        }
+        h1 {
+            color: #2c3e50; /* Color de texto */
+            text-align: center;
+        }
+        form {
+            position: absolute; /* Posición absoluta */
+            top: 20px; /* Distancia desde la parte superior */
+            right: 20px; /* Distancia desde la derecha */
+        }
+        input[type="submit"] {
+            background-color: #3498db; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9; /* Color del botón al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+<h1>
+    Hello
+    <span sec:authentication="name" th:if="${#authentication.principal.username} != null">
+        [[${#authentication.principal.username}]]
+    </span>
+    <span th:unless="${#authentication.principal.username} != null">thymeleaf</span>
+    !
+</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>
+

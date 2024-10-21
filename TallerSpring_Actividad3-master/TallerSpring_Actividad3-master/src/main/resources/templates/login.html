@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Security Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ocupa toda la altura de la ventana */
+            margin: 0;
+            background-color: #f0f4f8; /* Color de fondo claro */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: white; /* Fondo blanco para el formulario */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 20px; /* Espaciado interno */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra del contenedor */
+            width: 300px; /* Ancho fijo */
+            text-align: center; /* Centrar texto */
+        }
+        h2 {
+            color: #2c3e50; /* Color de texto del encabezado */
+            margin-bottom: 20px; /* Espaciado debajo del encabezado */
+        }
+        label {
+            display: block; /* Bloques para etiquetas */
+            margin-bottom: 10px; /* Espaciado debajo de cada etiqueta */
+            color: #34495e; /* Color del texto */
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%; /* Ancho completo */
+            padding: 10px; /* Espaciado interno */
+            margin: 5px 0 15px; /* Espaciado en los márgenes */
+            border: 1px solid #ccc; /* Bordes */
+            border-radius: 5px; /* Bordes redondeados */
+        }
+        input[type="submit"] {
+            background-color: #3498db; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            border: none;
+            padding: 10px; /* Espaciado interno */
+            cursor: pointer; /* Cambiar cursor al pasar el ratón */
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 16px; /* Tamaño de fuente */
+            width: 100%; /* Ancho completo */
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9; /* Color del botón al pasar el ratón */
+        }
+        .error, .logout {
+            color: red; /* Color para mensajes de error */
+            margin-bottom: 20px; /* Espaciado debajo del mensaje */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Login</h2>
+    <div th:if="${param.error}" class="error">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}" class="logout">
+        You have been logged out.
+    </div>
+    <form th:action="@{/login}" method="post">
+        <div>
+            <label for="username">User Name:</label>
+            <input type="text" id="username" name="username"/>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"/>
+        </div>
+        <div>
+            <input type="submit" value="Sign In"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

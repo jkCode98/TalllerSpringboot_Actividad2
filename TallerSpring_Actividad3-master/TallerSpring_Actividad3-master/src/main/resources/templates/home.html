@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Security Example</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ocupa toda la altura de la ventana */
+            margin: 0;
+            background-color: #f0f4f8; /* Color de fondo claro */
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #2c3e50; /* Color de texto del encabezado */
+            margin-bottom: 20px; /* Espaciado debajo del encabezado */
+        }
+        p {
+            color: #34495e; /* Color del texto del párrafo */
+            font-size: 18px; /* Tamaño de fuente del párrafo */
+            margin-bottom: 30px; /* Espaciado debajo del párrafo */
+        }
+        a {
+            text-decoration: none; /* Sin subrayado */
+            color: #3498db; /* Color del enlace */
+            font-weight: bold; /* Negrita para el enlace */
+        }
+        a:hover {
+            text-decoration: underline; /* Subrayado al pasar el ratón */
+        }
+        .container {
+            text-align: center; /* Centra el texto dentro del contenedor */
+            border: 1px solid #ccc; /* Bordes alrededor del contenedor */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 20px; /* Espaciado interno */
+            background-color: white; /* Fondo blanco para el contenedor */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra del contenedor */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome!</h1>
+    <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+</div>
+</body>
+</html>
